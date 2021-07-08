@@ -1,0 +1,37 @@
+#sidebar{
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: rgb(41, 41, 41);
+    padding: 15vh 3.5rem 10vh 2.5rem;
+    left: 0;
+}
+#sidebar h4{
+    margin-bottom: 5rem;
+    color: var(--white);
+}
+#sidebar a, #sidebar p{
+    color: var(--white);
+    font-weight: 600;
+    font-size: 2.3rem;
+    border-top: .1rem solid var(--white);
+    padding-top: 2rem;
+    cursor: pointer;
+}
+#sidebar a:hover{
+    transition: ease-in 300ms;
+    color: rgb(160, 160, 160);
+}
+#sidebar .mouse-over, #sidebar:hover .icons{
+    display: none;
+}
+#sidebar:hover .mouse-over, #sidebar .icons{
+    display: flex;
+    flex-direction: column;
+}
+#sidebar .icon-only{
+    font-size: 3rem;
+    color: var(--white);
+    margin: 1rem 0;
+}

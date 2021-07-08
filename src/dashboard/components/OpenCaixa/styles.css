@@ -1,0 +1,10 @@
+.opencaixa label{
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+.opencaixa input{
+    border: .1rem solid rgb(175, 175, 175);
+}
+.closecaixa .buttons button:last-child{
+    margin-left: 2rem;
+}

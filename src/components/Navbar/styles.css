@@ -1,0 +1,90 @@
+@keyframes menu {
+    1%{
+        top: -30vh;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        top: 15vh;
+    }
+}
+nav {
+    width: min(144.4rem, 90%);
+    position: absolute;
+    top: 5vh;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+}
+nav h1{
+    color: var(--white);
+    font-size: 5.6rem;
+}
+nav a, nav p{
+    color: var(--white);
+    font-size: 2.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+nav a:hover, nav p:hover{
+    transition: ease-in 300ms;
+    color: rgb(153, 93, 15);
+}
+nav .desktop-menu a:not(:last-child){
+    margin-right: 2.5rem;
+}
+nav .icon{
+    font-size: 2.6rem;
+    margin-right: .8rem;
+    cursor: pointer;
+}
+nav .desktop-menu{
+    display: flex;
+}
+.mobile-menu{
+    position: fixed;
+    flex-direction: column;
+    left: 50%;
+    top: -30vh;
+    transform: translate(-50%);
+    background: var(--red);
+    border-radius: .5rem;
+    padding: 3rem 4rem;
+    box-shadow: .2rem .2rem .7rem rgb(100, 100, 100);
+}
+nav .show{
+    animation-name: menu;
+    animation-duration: .5s;
+    animation-timing-function: ease-in;
+    animation-fill-mode: forwards;
+}
+.hamburger{
+    display: none;
+}
+nav #column{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+nav #goTrack{
+    margin-top: 1rem;
+    background: var(--red);
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+}
+nav #goTrack:hover{
+    color: var(--white);
+}
+@media (max-width: 950px){
+    nav #column{
+        display: none;
+    }
+    .hamburger{
+        display: block;
+    }
+}

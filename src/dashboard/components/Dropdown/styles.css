@@ -1,0 +1,37 @@
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.dropdown:hover .content{
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+}
+.dropdown svg{
+    font-size: 4rem;
+    cursor: pointer;
+}
+.dropdown svg:hover{
+    transition: ease-in 300ms;
+}
+.content{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    flex-direction: column;
+    background: var(--red);
+    padding: 2rem 4.5rem;
+    border-radius: .5rem
+}
+.content p{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: .5rem 0;
+}
+.content svg{
+    position: absolute;
+    left: 9rem;
+    top: .8rem;
+    font-size: 2rem;
+}

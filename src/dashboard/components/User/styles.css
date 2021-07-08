@@ -1,0 +1,22 @@
+.user{
+    background: rgb(41, 41, 41);
+    margin-top: 3rem;
+    padding: 1.5rem 2.5rem;
+    border-radius: .5rem;
+}
+.user p{
+    font-size: 1.8rem;
+    color: var(--white);
+}
+.user .dropdown svg{
+    color: var(--white);
+}
+.user .dropdown svg:hover{
+    color: rgb(180, 180, 180);
+}
+@media (max-width: 900px){
+    .user{
+        display: flex !important;
+        flex-direction: column;
+    }
+}

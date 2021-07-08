@@ -1,0 +1,38 @@
+#combos div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    width: 37.5rem;
+    background: var(--white);
+    box-shadow: .2rem .2rem 1rem rgb(75, 75, 75);
+}
+#combos > div > img{
+    width: min(35rem, 100%);
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+#combos > div > h3{
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+#combos > div > h4{
+    align-self: flex-start;
+    color: #f1352e;
+    margin-bottom: 2rem;
+}
+#combos > div > p{
+    margin-bottom: 2.5rem;
+}
+@media (max-width: 1200px){
+    #combos div{
+        width: 32rem;
+    }
+    #combos > div > img{
+        width: 27.5rem;
+    }
+    @media (max-width: 1200px){
+        
+    }
+}

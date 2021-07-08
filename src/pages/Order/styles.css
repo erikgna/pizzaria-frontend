@@ -1,0 +1,96 @@
+#order{
+    width: min(144.4rem, 90%);
+    padding-top: 15vh;
+    min-height: 75vh;
+}
+#order h1{
+    font-size: clamp(3rem, 6vw, 4.8rem);
+    color: var(--red);
+    margin-top: 6rem;
+    -webkit-text-stroke-width: .1rem;
+    -webkit-text-stroke-color: #360200;
+}
+#order #total{
+    display: flex;
+    align-items: center;
+    font-size: clamp(2rem, 1.5vw, 1.8rem);
+    font-weight: 700;
+    background: var(--white);
+    color: var(--black);
+    border-radius: .5rem;
+    padding: .5rem 2rem;
+    margin-right: 2rem;
+    box-shadow: .1rem .1rem 1rem rgb(121, 121, 121);
+    margin: .5rem 1rem;
+}
+#order textarea{
+    width: 35rem;
+    height: 15rem;
+    resize: none;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    padding: 1.5rem;
+    border-radius: .5rem;
+    box-shadow: .1rem .1rem 1rem rgb(180, 180, 180);
+    outline: none;
+}
+#order label{
+    font-size: 2.4rem;
+    color: var(--black);
+    font-weight: 700;
+    margin-bottom: .8rem;
+}
+#order select{
+    width: 35rem;
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    outline: none;
+}
+#order option{
+    font-size: 1.8rem;
+}
+#order .extras{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+#order .extras > div{
+    display: flex;
+    flex-direction: column;
+}
+#order .fretes{
+    display: flex;
+    flex-direction: column;
+}
+#order .infos{
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 850px) {
+    #order{
+        width: 95%;
+    }
+    #order select{
+        width: 30rem;
+    }
+    #order textarea{
+        width: 30rem;
+    }
+}
+@media (max-width: 750px) {
+    #order .infos{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #order #total{
+        margin-left: 0;
+    }
+}
+@media (max-width: 675px) {
+    #order .extras{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

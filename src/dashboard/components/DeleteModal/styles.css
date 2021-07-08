@@ -1,0 +1,21 @@
+.modal-delete{
+    padding: 3rem 5rem;
+}
+.modal-delete .buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2.5rem;
+}
+.modal-delete .buttons button:first-child{
+    background: #c94137;
+}
+.modal-delete .buttons button:last-child{
+    background: #219758;
+}
+.modal-delete textarea{
+    width: 50rem;
+    height: 15rem;
+    font-size: 2rem;
+    padding: 1rem;
+}

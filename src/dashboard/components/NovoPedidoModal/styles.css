@@ -1,0 +1,65 @@
+.novoPedido{
+    background: white;
+}
+.novoPedido form{
+    display: flex;
+    justify-content: center;
+}
+.novoPedido form .columns{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+.novoPedido input{
+    border: .1rem black solid;
+    font-size: 1.6rem;
+    color: rgb(156, 156, 156);
+    margin-bottom: 1rem;
+}
+.novoPedido form label{
+    font-size: 1.8rem;
+    color: #000;
+    align-self: flex-start;
+    margin-bottom: 1rem;
+}
+.novoPedido select, .novoPedido option{
+    font-size: 1.8rem;
+    width: 20rem;
+}
+#quanty{
+    width: 10rem;
+}
+#quanty-label{
+    margin-top: 3rem;
+}
+.novoPedido .row{
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.novoPedido .row .icon{
+    margin-left: 2rem;
+    color: #4fba3e;
+    cursor: pointer;
+}
+#buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#buttons button{
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+#buttons button:first-child{
+    background: #c94137;
+}
+#buttons button:last-child{
+    background: #4fba3e;
+}

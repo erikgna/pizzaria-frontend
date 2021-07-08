@@ -1,0 +1,23 @@
+.modal-user{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.user-edit{
+    display: flex;
+    flex-direction: column;
+}
+.user-edit label{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.user-edit input{
+    border: .1rem solid rgb(107, 107, 107);
+    margin-bottom: 2rem;
+}

@@ -1,0 +1,52 @@
+.charts-100{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 7rem;
+    background: var(--white);
+}
+.charts{
+    padding: 5rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: flex-start;
+}
+.charts div{
+    width: 75%;
+    margin-top: 5rem;
+}
+.charts select{
+    margin: 2rem 0;
+}
+.charts h3{
+    font-size: clamp(1.8rem, 1.5vw, 2.4rem);
+}
+.charts p{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+.charts select, .charts option{
+    font-size: 1.8rem;
+    padding: .5rem;
+}
+.charts canvas{
+    min-width: 30rem;
+    margin-top: 2.5rem;
+}
+.charts .donuts{
+    max-width: 50rem;
+    max-height: 50rem;
+}
+@media (max-width: 875px){
+    .charts{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5rem 0;
+    }
+}

@@ -1,0 +1,84 @@
+.modal-white{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3rem 4rem;
+    border-radius: .8rem;
+    background: white;
+}
+.modal-white p{
+    margin: .4rem 0;
+}
+.modal-white span{
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.info-money, .total{
+    display: flex;
+}
+.info-money h6, .total h6{
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+.modal-white .buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+}
+.modal-white .buttons svg{
+    font-size: 2.4rem;
+    margin-right: .8rem;
+}
+.modal-white .buttons button{
+    justify-content: space-between;
+    font-size: 1.8rem;
+    color: var(--white);
+    padding: .8rem 1.2rem;
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.modal-white .buttons button:first-child{
+    background: #c94137;
+}
+.modal-white .buttons button:last-child{
+    background: #219758;
+}
+.info-money{
+    width: 100%;
+    margin: 2rem 0;
+}
+.info-money span{
+    margin-left: 2rem;
+    padding-right: 2rem;
+    margin-right: 2rem;
+    border-right: .1rem solid rgb(170, 170, 170);
+}
+.total{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    align-self: flex-end;
+    border-top: .1rem solid rgb(170, 170, 170);
+}
+.modal-white table{
+    width: 100%;
+}
+.modal-white table th, .modal-white table td{
+    color: black;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.item1{
+    text-align: start !important;
+    border-bottom: .1rem rgb(129, 129, 129) solid;
+    padding-bottom: 1rem;
+}
+.modal-white table h5{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 700;
+}

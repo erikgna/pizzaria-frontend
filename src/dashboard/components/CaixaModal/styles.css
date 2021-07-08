@@ -1,0 +1,40 @@
+.caixaModal .two-columns{
+    display: flex;
+}
+.unique-columns:first-child{
+    margin-right: 10rem;
+}
+.side-icon{
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+}
+.icon-left{
+    font-size: 5rem !important;
+    margin-right: 2rem !important;
+}
+.buttons-t {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.buttons-t button{
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    color: white;
+    cursor: pointer;
+}
+.buttons-t button:first-child{
+    background: rgb(199, 199, 199);
+    color: black;
+}
+.buttons-t button:last-child{
+    background: #c94137;
+}
+.buttons-t button:nth-child(2){
+    background: #4fba3e;
+}

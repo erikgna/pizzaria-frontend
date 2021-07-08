@@ -1,0 +1,203 @@
+#pedidos{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.time{
+    position: relative;
+    bottom: -10rem;
+    width: 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #266ea0;
+    padding: 2.5rem 0;
+    border-radius: .5rem;
+    cursor: pointer;
+}
+.time svg{
+    font-size: 4rem;
+    color: var(--white);
+    margin-right: 1.5rem;
+}
+.time p{
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    font-size: 1.8rem;
+}
+.time span{
+    font-size: clamp(2rem, 1.5vw, 2.4rem);
+    font-weight: 700;
+    margin-right: .8rem;
+}
+/* Nav */
+#navpedidos{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    background: #444344;
+    margin-bottom: 5rem;
+}
+#navpedidos svg{
+    font-size: clamp(2.4rem, 2vw, 4rem);
+    margin-right: .5rem;
+}
+#navpedidos .nav-row{
+    display: flex;
+}
+#navpedidos div .green, .caixa, .cart{
+    display: flex;
+    align-items: center;
+    margin: 0 1rem;
+    color: var(--white);
+    border-radius: .5rem;
+    padding: .5rem 1rem;
+    cursor: pointer;
+}
+#navpedidos .green{
+    background: #4fba3e;
+}
+#navpedidos .caixa{
+    background: #fe940e;
+}
+#navpedidos .cart{
+    background: #3497dd;
+}
+#navpedidos .nav-row > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background: transparent;
+}
+#navpedidos p{
+    text-transform: uppercase;
+    font-size: clamp(1.6rem, 1.5vw, 1.8rem);
+    font-weight: 700;
+}
+#navpedidos span{
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+#pedidos .columns{
+    width: 100%;
+    display: flex;
+}
+/* Pedido */
+.column{
+    min-height: 60vh;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2.5rem;
+    border-right: .1rem rgb(153, 153, 153) solid;
+}
+.column h3{
+    font-size: clamp(2rem, 2vw, 2.6rem);
+    font-weight: 600;
+}
+.column h3 span{
+    background: #3497dd;
+    color: var(--white);
+    font-size: clamp(2rem, 1.5vw, 2.6rem);
+    border-radius: 2.5rem;
+    padding: 0 1rem;
+    margin-right: .8rem;
+}
+#novopedido{
+    margin-top: 4rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+#novopedido div{
+    display: flex;
+    align-items: center;
+}
+#novopedido svg{
+    color: var(--black);
+    font-size: clamp(2.4rem, 1.5vw, 3rem);
+}
+#novopedido svg:last-child{
+    margin-left: 1rem;
+}
+#novopedido p, #novopedido h6{
+    font-size: 1.6rem;
+    margin: 0 1rem;
+}
+.preparo .down{
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: .5rem;
+    border-top: .1rem solid rgb(119, 119, 119);
+}
+.preparo .down svg{
+    font-size: 2.8rem;
+    margin-right: 1rem;
+    color: #fe940e;
+}
+.preparo #check{
+    color: #4fba3e;
+    margin-right: 1rem;
+}
+.column50{
+    width: 50rem;
+}
+.menu-hamb{
+    font-size: 4rem !important;
+    color: var(--white);
+    cursor: pointer;
+    display: none;
+}
+@media (max-width: 1150px){
+    .columns{
+        flex-wrap: wrap;
+    }
+    .column50{
+        width: 49%;
+    }
+    .column{
+        width: 49%;
+        border: none;
+        min-height: auto;
+    }
+    .column:not(:last-child){
+        margin-bottom: 6rem;
+    }
+}
+@media (max-width: 850px){
+    #navpedidos .nav-row{
+        position: fixed;
+        flex-direction: column;
+        top: 15vh;
+        left: 50%;
+        transform: translate(-50%);
+        background: #444344;
+        padding: 2rem 3rem;
+        border-radius: .5rem;
+        display: none;
+    }
+    .showbtns{
+        display: block !important;
+    }
+    .menu-hamb{
+        display: block;
+    }
+    #navpedidos .green, .cart, .caixa{
+        margin: 2rem 0 !important;
+        width: 25rem;
+    }
+    .column, .column50{
+        width: 95%;
+    }
+    .columns{
+        flex-direction: column;
+        align-items: center;
+    }
+}

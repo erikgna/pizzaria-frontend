@@ -1,0 +1,103 @@
+#editar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.3);
+}
+#editar form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--white);
+    padding: 5rem;
+    border-radius: .5rem;
+}
+#editar div{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#editar .margin{
+    width: 10rem;
+}
+#editar img{
+    width: 35rem;
+    border-radius: .8rem;
+}
+#editar button{
+    display: flex;
+    align-items: center;
+    padding: .8rem 1.5rem;
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: white;
+    border-radius: .5rem;
+    background: #0488cd;
+    border: none;
+    cursor: pointer;
+}
+#editar button svg{
+    margin-right: .8rem;
+    font-size: 2.4rem;
+}
+#editar .button{
+    width: 25rem;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    background: #3c9023;
+    cursor: pointer;
+    border-radius: .5rem;
+    padding: 1rem 2rem;
+}
+#editar .close{
+    width: 10rem;
+    background: var(--white);
+    color: var(--black);
+    border: .1rem solid rgb(70, 70, 70);
+    margin-right: 3rem;
+}
+#editar .button svg{
+    color: white;
+    font-size: 2.5rem;
+    margin-right: .8rem;
+}
+#editar .img-div{
+    margin: 3rem 0;
+    align-self: flex-start;
+    width: 40rem;
+    flex-direction: column;
+}
+#editar .img-div button{
+    margin-top: 2rem;
+}
+.eshow{
+    opacity: 1;
+    visibility: visible;
+}
+.eunshow{
+    opacity: 0;
+    visibility: hidden;
+}
+#editar input{
+    border: .1rem rgb(148, 148, 148) solid;
+}
+#editar input[type="file"]{
+    width: 12rem;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+#editar .imgUrl{
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+}
