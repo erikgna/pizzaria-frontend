@@ -6,15 +6,16 @@ import { Item } from '../../components/Item/Item'
 import './styles.css'
 
 export const Order = () => {
-    const {cart, user, getProducts, deleteCart, products, finishBuy, getFrete, freteValue} = useGlobalContext()
+    const {cart, user, getProducts, deleteCart, products, finishBuy, getFrete, freteValue, getBordas, bordas} = useGlobalContext()
     const [toShow, setToShow] = useState([])
     const [total, setTotal] = useState(0)
-    const [extra, setExtra] = useState('Sem Recheio')
+    const [extra, setExtra] = useState('0,')
     const [entrega, setEntrega] = useState('Buscar no Local')
     const [comment, setComment] = useState('')
     const [metodo, setMetodo] = useState('Cartão / PIX')
 
     const submit = () => {
+        if(!user) window.location.href = "/autenticação"
         if(toShow.length === 0) alert("O seu carrinho ainda está vazio!")
         else finishBuy(user, toShow, extra, comment, entrega, metodo)
         setComment('')
@@ -38,7 +39,8 @@ export const Order = () => {
             setTotal(total)
         }
         fetch()
-        getFrete() // eslint-disable-next-line
+        getFrete()
+        getBordas() // eslint-disable-next-line
     }, [])
 
     return (
@@ -57,9 +59,10 @@ export const Order = () => {
                     <div>
                         <label>Borda</label>
                         <select onChange={(e) => setExtra(e.target.value)}>
-                            <option value="Sem Recheio">Sem Recheio</option>
-                            <option value="Cheddar">Cheddar (R$ 5,00)</option>
-                            <option value="Catupiry">Catupiry (R$ 5,00)</option>
+                            <option value="0, Sem Recheio">Sem Recheio</option>
+                            {bordas.map(({_id, name, value}) => (
+                                <option key={_id} value={[value, name]}>{name} (R$ {value})</option>
+                            ))}
                         </select>
                     </div>
                     <div>
@@ -85,7 +88,7 @@ export const Order = () => {
                     <div id="total">Tempo de Entrega: {freteValue?.entrega}</div>
                     <div id="total">Tempo para Retirada: {freteValue?.retirada}</div>
                 </div>
-                <div id="total">Total: R$ {total}</div>
+                <div id="total">Total: R$ {total + freteValue?.price + parseFloat(extra.split(',')[0])}</div>
                 <Button text="Finalizar compra" handleClick={() => submit()} />
             </div>
         </div>

@@ -10,6 +10,12 @@ export const Combos = () => {
     const {getProducts, products} = useGlobalContext()
     const [showModal, setShowModal] = useState(false)
     const [search, setSearch] = useState('')
+    const [formData, setFormData] = useState({})
+
+    const handleClick = (data) => {
+        setFormData(data)
+        setShowModal(showModal? false:true)
+    }
 
     const handleShow = () => {
         setShowModal(showModal? false : true)
@@ -32,16 +38,18 @@ export const Combos = () => {
                 </form>
             </div>
             <table>
-                <tr>
-                    <th>Nome</th>
-                    <th>Categoria</th>
-                    <th>Preço</th>
-                    <th>Status</th>
-                    <th>Ação</th>
-                </tr>
-                <Combo food={products} search={search} />
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Status</th>
+                        <th>Ação</th>
+                    </tr>
+                </thead>
+                <Combo food={products} search={search} handleClick={handleClick} />
             </table>
-            <Edit show={showModal} handleClick={handleShow} combo={true} />
+            {showModal&& <Edit handleClick={handleShow} combo={true} form={formData} /> }
         </div>
     )
 }

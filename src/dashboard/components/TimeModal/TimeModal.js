@@ -3,7 +3,7 @@ import { useGlobalContext } from '../../../context'
 
 import './styles.css'
 
-export const TimeModal = ({show, click}) => {
+export const TimeModal = ({click}) => {
     const {editFrete, freteValue} = useGlobalContext()
     const [text, setText] = useState({
         retirada: freteValue.retirada, 
@@ -20,7 +20,7 @@ export const TimeModal = ({show, click}) => {
     }
 
     return (
-        <div className={show? 'modal show' : 'modal unshow'}>
+        <div className='modal show'>
             <div className="modal-input">
                 <form>
                     <label>Tempo de Retirada</label>

@@ -13,6 +13,7 @@ export const Login = () => {
         e.preventDefault()
         await enterUser(form)
         setForm(initialValue)
+        window.location.href = "/dashboard"
     }
 
     return (

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Dropdown } from '../Dropdown/Dropdown'
+import { Dropdowna } from '../Dropdown/Dropdown'
 import './styles.css'
 
 export const User = ({id, name, email, phone}) => {
@@ -10,7 +10,7 @@ export const User = ({id, name, email, phone}) => {
             <p>{name}</p>
             <p>{email}</p>
             <p>{phone}</p>
-            <Dropdown id={id} data={data} />
+            <Dropdowna id={id} data={data} />
         </div>
     )
 }

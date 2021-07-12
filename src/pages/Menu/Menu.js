@@ -25,7 +25,7 @@ export const Menu = () => {
                     <select onChange={(e) => setUserCategory(e.target.value)}>
                         <option value='Todas'>Todas</option>
                         {categorys?.map(({name}) => (
-                            <option value={name}>{name}</option>
+                            <option value={name} key={name}>{name}</option>
                         ))}
                     </select>
                 </div>
@@ -40,7 +40,6 @@ export const Menu = () => {
                     return null
                 })}
             </div>
-            {/* TODO: Lista dos produtos, seleção por categorias(salgadas, doces, combos, bebidas). Barra de pesquisa por nome. Por tamanho(média, grande, pequena) */}
         </div>
     )
 }

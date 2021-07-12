@@ -11,7 +11,7 @@ export const Preparo = ({info, handleClick}) => {
     return (
         <div className="preparo">
             <div id="novopedido">
-                <div>
+                <div onClick={() => handleClick(info, false)}>
                     <MdMotorcycle />
                     <p>{data}</p>
                     <h6>{info.client}</h6>

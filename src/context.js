@@ -6,6 +6,7 @@ const AppContext = React.createContext()
 const AppProvider = ({children}) => {
     const [products, setProducts] = useState([])
     const [categorys, setCategorys] = useState([])
+    const [bordas, setBordas] = useState([])
     const [loading, setLoading] = useState(false)
     const [freteValue, setFreteValue] = useState(0)
     const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')))
@@ -82,16 +83,30 @@ const AppProvider = ({children}) => {
 
     const getCategorys = async () => {
         let data
-        console.log(products.length)
-        if(products.length === 0){
+        if(categorys.length === 0){
             data = await api.getCategorys()
             setCategorys(data?.data)
         }
         return data?.data
     }
 
+    const getBordas = async () => {
+        let data
+        if(bordas.length === 0){
+            data = await api.getBorda()
+            setBordas(data?.data)
+        }
+        return data?.data
+    }
+
+
     const createCategory = async (name) => {
         await api.newCategory({name})
+        document.location.reload()
+    }
+
+    const createBorda = async (data) => {
+        await api.newBorda(data)
         document.location.reload()
     }
 
@@ -121,6 +136,11 @@ const AppProvider = ({children}) => {
         window.location.reload()
     }
 
+    const deleteBorda = async (id) => {
+        await api.deleteBorda(id)
+        window.location.reload()
+    }
+
     const addToCart = async (id, cart) => {
         if(cart === null) cart = []
         try {
@@ -147,7 +167,8 @@ const AppProvider = ({children}) => {
             const {data} = await api.createOrder(handle)
             console.log(data)
             localStorage.removeItem('cart')
-            //window.location.href = "/";
+            alert('Pedido feito com sucesso!')
+            window.location.href = "/";
         } catch (error) {
             console.log(error)
         }
@@ -211,7 +232,7 @@ const AppProvider = ({children}) => {
                 loading,
                 createUser, enterUser, logout, user, setUser, editUser, getUsers, users, deleteUser,
                 getProducts, createProduct, editProduct, products,
-                addToCart, deleteCart, createCategory, categorys, getCategorys, cart,
+                addToCart, deleteCart, createCategory, categorys, getCategorys, cart, getBordas, createBorda, deleteBorda, bordas,
                 deleteProduct, deleteCategory,
                 finishBuy, getOrders, getFrete, freteValue, editFrete, editOrder, deleteOrder, trackOrder,
                 createCaixa, getCaixa, caixa, editCaixa, getCharts

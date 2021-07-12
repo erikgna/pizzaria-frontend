@@ -3,12 +3,12 @@ import React, {useState} from 'react'
 import { useGlobalContext } from '../../../context'
 import './styles.css'
 
-export const EditCategory = ({show, handleClick}) => {
+export const EditCategory = ({handleClick}) => {
     const {createCategory} = useGlobalContext()
     const [text, setText] = useState('')
 
     return (
-        <div className={`modal-user ${show? 'show' : 'unshow'}`}>
+        <div className='modal-user show'>
             <div className="modal-white">
                 <form className="user-edit">
                     <label>Nome da Categoria</label>

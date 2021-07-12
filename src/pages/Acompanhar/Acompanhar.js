@@ -12,7 +12,11 @@ export const Acompanhar = ({click}) => {
     }
 
     useEffect(() => {
-        getOrder() // eslint-disable-next-line
+        getOrder()
+        const interval = setInterval(() => {
+            getOrder()
+        }, 120000)
+          return () => clearInterval(interval) // eslint-disable-next-line
     },[])
 
     return (

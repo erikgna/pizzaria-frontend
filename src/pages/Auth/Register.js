@@ -14,6 +14,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                 place="Digite o seu nome" 
                 handleChange={handleChange} 
                 value={text.name}
+                required={true}
             />
             <div>
                 <Input 
@@ -21,6 +22,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     label="Telefone/Celular" 
                     handleChange={handleChange}
                     value={text.phone}
+                    required={true}
                 />
                 <div className="margin"/>
                 <Input 
@@ -30,6 +32,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     place="Digite o seu email" 
                     handleChange={handleChange} 
                     value={text.email}
+                    required={true}
                 />
             </div>
             <div>
@@ -40,6 +43,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     label="Crie uma senha" 
                     handleChange={handleChange}
                     value={text.password}
+                    required={true}
                 />
                 <div className="margin"/>
                 <Input 
@@ -49,6 +53,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     place="Confirmar sua senha" 
                     handleChange={handleChange} 
                     value={text.confirmPassword}
+                    required={true}
                 />
             </div>
             <h3>Endereço</h3>
@@ -60,6 +65,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     place="Digite o endereço de entrega" 
                     handleChange={handleChange} 
                     value={text.address}
+                    required={true}
                 />
                 <div className="margin"/>
                 <Input 
@@ -69,6 +75,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     place="Nº 000" 
                     handleChange={handleChange} 
                     value={text.number}
+                    required={true}
                 />
             </div>
             <div>
@@ -76,9 +83,10 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     type="text"
                     name="complemento"
                     place="Apto/Complemento/Ref" 
-                    label="Apto/Quadra/Complemento" 
+                    label="Complemento" 
                     handleChange={handleChange}
                     value={text.complemento}
+                    required={false}
                 />
                 <div className="margin"/>
                 <Input 
@@ -88,6 +96,7 @@ export const Register = ({handleChange, handleSubmit, text, isLogin, login}) => 
                     place="Seu bairro" 
                     handleChange={handleChange} 
                     value={text.bairro}
+                    required={true}
                 />
             </div>
             <div className="margin"/>

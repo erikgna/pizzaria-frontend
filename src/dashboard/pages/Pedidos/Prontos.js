@@ -6,7 +6,7 @@ import {AiFillCheckCircle, AiFillClockCircle} from 'react-icons/ai'
 import { useGlobalContext } from '../../../context'
 import { DeleteModal } from '../../components/DeleteModal/DeleteModal'
 
-export const Prontos = ({info}) => {
+export const Prontos = ({info, handleClick}) => {
     const {deleteOrder, freteValue, caixa} = useGlobalContext()
     const [showDelete, setShowDelete] = useState(false)
 
@@ -15,7 +15,7 @@ export const Prontos = ({info}) => {
     }
 
     const handleFinished = () => {
-        const soma = info?.price + freteValue?.price + caixa?.total
+        const soma = info?.price + freteValue?.price + caixa?.total + parseFloat(info?.recheio.split(',')[0])
         const count = caixa?.count + 1
         const data = {total: soma, count}
         deleteOrder(info?._id, data)
@@ -26,7 +26,7 @@ export const Prontos = ({info}) => {
     return (
         <div className="preparo">
             <div id="novopedido">
-                <div>
+                <div onClick={() => handleClick(info, false)}>
                     <MdMotorcycle />
                     <p>{data}</p>
                     <h6>{info.client}</h6>
@@ -40,7 +40,7 @@ export const Prontos = ({info}) => {
                 <AiFillClockCircle />
                 <p>{info.address}</p>
             </div>
-            <DeleteModal show={showDelete} click={handleShowDelete} info={info}/>
+            {showDelete&& <DeleteModal click={handleShowDelete} info={info}/>}
         </div>
     )
 }

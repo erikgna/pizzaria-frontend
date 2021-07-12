@@ -14,6 +14,7 @@ export const Login = ({handleChange, handleSubmit, text, isLogin, login}) => {
                 place="Digite o seu email" 
                 handleChange={handleChange} 
                 value={text.email}
+                required={true}
             />
            <Input 
                 type="password"
@@ -22,6 +23,7 @@ export const Login = ({handleChange, handleSubmit, text, isLogin, login}) => {
                 place="Digite a sua senha" 
                 handleChange={handleChange} 
                 value={text.password}
+                required={true}
             />
             <div className="margin"/>
             <div className="buttons-auth">

@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { useGlobalContext } from '../../../context'
 import './styles.css'
 
-export const DeleteModal = ({show, click, info}) => {
+export const DeleteModal = ({click, info}) => {
     const { deleteOrder, caixa, freteValue} = useGlobalContext()
     const [text, setText] = useState('')
 
@@ -17,7 +17,7 @@ export const DeleteModal = ({show, click, info}) => {
     }
 
     return (
-        <div className={show? 'modal show' : 'modal unshow'}>
+        <div className='modal show'>
             <div className="modal-input modal-delete">
                 <form>
                     <label>Motivo do Cancelamento</label>

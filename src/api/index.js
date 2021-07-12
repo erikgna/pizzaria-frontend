@@ -1,10 +1,10 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL: "http://localhost:5000"})
+const API = axios.create({baseURL: "https://pizzariaback.herokuapp.com"})
 
 API.interceptors.request.use((req) => {
-    if(localStorage.getItem('profile')){
-        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
+    if(localStorage.getItem('token')){
+        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('token'))}`
     }
 
     return req
@@ -24,6 +24,10 @@ export const deleteProduct = (id) => API.delete(`/menus/delete/${id}`)
 export const getCategorys = () => API.get(`/menus/category`)
 export const newCategory = (name) => API.post(`/menus/category`, name)
 export const deleteCategory = (id) => API.post(`/menus/delete/category/`, id)
+
+export const getBorda = () => API.get(`/menus/borda`)
+export const newBorda = (data) => API.post(`/menus/borda`, data)
+export const deleteBorda = (id) => API.delete(`/menus/borda/${id}`)
 
 export const getOrders = () => API.get('/orders')
 export const updateOrder = (id, formData) => API.patch(`/orders/update/${id}`, formData)

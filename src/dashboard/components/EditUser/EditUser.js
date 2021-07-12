@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import { useGlobalContext } from '../../../context'
 import './styles.css'
 
-export const EditUser = ({showModal, click, id, form}) => {
+export const EditUser = ({click, id, form}) => {
     const {editUser} = useGlobalContext()
     const [text, setText] = useState(form)
 
@@ -12,7 +12,7 @@ export const EditUser = ({showModal, click, id, form}) => {
     }
     
     return (
-        <div className={`modal-user ${showModal? 'show' : 'unshow'}`}>
+        <div className='modal-user show'>
             <div className="modal-white">
                 <form className="user-edit">
                     <label>Nome do Cliente</label>

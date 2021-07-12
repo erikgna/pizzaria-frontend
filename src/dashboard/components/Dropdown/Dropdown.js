@@ -1,11 +1,10 @@
 import React, {useState} from 'react'
-import { BsThreeDots } from 'react-icons/bs'
 
 import { useGlobalContext } from '../../../context'
 import { EditUser } from '../EditUser/EditUser'
 import './styles.css'
 
-export const Dropdown = ({id, data}) => {
+export const Dropdowna = ({id, data}) => {
     const {deleteUser} = useGlobalContext()
     const [show, setShow] = useState(false)
 
@@ -15,12 +14,11 @@ export const Dropdown = ({id, data}) => {
 
     return (
         <section className='dropdown'>
-            <BsThreeDots />
-            <section className='content'>
+            <div>
                 <p onClick={handleShow}>Editar</p>
                 <p onClick={() => deleteUser(id)}>Excluir</p>
-            </section>
-            <EditUser showModal={show} click={handleShow} id={id} form={data}/>
+            </div>
+            {show&& <EditUser click={handleShow} id={id} form={data}/>}
         </section>
     )
 }

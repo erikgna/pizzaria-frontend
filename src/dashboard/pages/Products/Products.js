@@ -13,6 +13,7 @@ export const Products = () => {
     const [showModalCategory, setShowModalCategory] = useState(false)
     const [category, setCategory] = useState("Todos")
     const [search, setSearch] = useState('')
+    const [formData, setFormData] = useState({})
 
     const handleShow = () => {
         setShowModal(showModal? false : true)
@@ -20,6 +21,11 @@ export const Products = () => {
 
     const handleShowCategory = () => {
         setShowModalCategory(showModalCategory? false : true)
+    }
+
+    const handleClick = (data) => {
+        setFormData(data)
+        setShowModal(showModal? false:true)
     }
 
     useEffect(() => {
@@ -67,11 +73,11 @@ export const Products = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <Produto food={products} selected={category} search={search}/>
+                    <Produto food={products} selected={category} search={search} handleClick={handleClick}/>
                 </tbody>
             </table>
-            <Edit show={showModal} handleClick={handleShow} combo={false} />
-            <EditCategory show={showModalCategory} handleClick={handleShowCategory} />
+            {showModal&& <Edit handleClick={handleShow} combo={false} form={formData} />}
+            {showModalCategory&& <EditCategory handleClick={handleShowCategory} />}
         </div>
     )
 }

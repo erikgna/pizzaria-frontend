@@ -3,18 +3,10 @@ import {BsTrash} from 'react-icons/bs'
 import {BiEdit} from 'react-icons/bi'
 
 import { useGlobalContext } from '../../../context'
-import { Edit } from '../../pages/Edit/Edit'
 
-export const Produto = ({food, selected, search}) => {
+export const Produto = ({food, selected, search, handleClick}) => {
     const {editProduct, deleteProduct} = useGlobalContext()
-    const [show, setShow] = useState(false)
     const [avalia, setAvalia] = useState(false)
-    const [formData, setFormData] = useState({})
-    
-    const handleClick = (data) => {
-        setFormData(data)
-        setShow(show? false:true)
-    }
 
     const handleClickStatus = (id, status) => {
         setAvalia(avalia? false : true)
@@ -40,12 +32,11 @@ export const Produto = ({food, selected, search}) => {
                                 <div className="pointer" />
                             </div>
                         </td>
-                        <td className="TDicon"><BiEdit onClick={() => handleClick({_id, name, category, price, avaliable, description})} /><BsTrash onClick={() => deleteProduct(_id)} /></td>
+                        <td className="TDicon"><BiEdit onClick={() => handleClick({_id, name, category, price, avaliable, description, image})} /><BsTrash onClick={() => deleteProduct(_id)} /></td>
                     </tr>
                 )
                 return null
             })}
-            <Edit show={show} handleClick={handleClick} combo={false} form={formData}/>
         </>
     )
 }

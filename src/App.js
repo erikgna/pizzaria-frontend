@@ -21,7 +21,7 @@ function App() {
   useEffect(() => {
     getProducts()
 
-    const path = window.location.pathname
+    const path = window.location.pathname.substring(0,10)
 
     if(user?.admin === 3) {
       setAdmin(true)
@@ -35,9 +35,9 @@ function App() {
 
   return (
     <Router>
+      <section className={!isWhite? 'body' : null}>
+      {!isWhite&& <Navbar />}
         <Switch>
-          <section className={!isWhite&& 'body'}>
-            {!isWhite&& <Navbar />}
             <Route exact path='/' component={Home} />
             <Route path='/cardapio' component={Menu} />
             <Route path='/pedido' component={Order} />
@@ -46,9 +46,9 @@ function App() {
             {funcio&& <Route path='/dashboard' component={Pedidos} /> }
             <Route path='/login' component={() => isWhite? <Redirect to="/dashboard" /> : <Login /> } />
             {!isWhite&& <Route path='/dashboard' component={Login} />}
-            {!isWhite&& <Footer />}
-          </section>
         </Switch>
+        {!isWhite&& <Footer />}
+        </section>
     </Router>
   );
 }

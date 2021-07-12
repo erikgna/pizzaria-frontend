@@ -23,7 +23,7 @@ export const Navbar = () => {
 
     return(
         <nav>
-            <h1>Pizzaria</h1>
+            <h1>Milano</h1>
             <div id="column">
                 <div className="desktop-menu">
                     <Link to='/'><AiOutlineHome className="icon" />Início</Link>

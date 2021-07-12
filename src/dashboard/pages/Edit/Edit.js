@@ -15,7 +15,7 @@ const initialValue = {
     avaliable: false
 }
 
-export const Edit = ({show, handleClick, combo, form}) => {
+export const Edit = ({handleClick, combo, form}) => {
     const {createProduct, editProduct} = useGlobalContext()
     const [text, setText] = useState((form === undefined)? initialValue : form)
 
@@ -30,7 +30,7 @@ export const Edit = ({show, handleClick, combo, form}) => {
     }
 
     return (
-        <div id="editar" className={show? 'eshow':'eunshow'}>
+        <div id="editar" className='eshow'>
             <form>
                 <div>
                     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -78,7 +78,7 @@ export const Edit = ({show, handleClick, combo, form}) => {
                 </div>
                 <div>
                     <div className="img-div">
-                        <img src={img} alt="error" />
+                        <img src={(form?.image === undefined)? img : form?.image} alt="error" />
                         <button><AiOutlinePlus />Editar<FileBase type="file" multiple={false} onDone={({base64}) => setText({...text, image: base64})} /></button>
                         <div className="imgUrl">
                             <input type="text" placeholder="URL de uma imagem" onChange={(e) => setText({...text, image: e.target.value})} />

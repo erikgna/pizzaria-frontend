@@ -16,9 +16,11 @@ export const Pedidos = () => {
     const [showTime, setShowTime] = useState(false)
     const [orders, setOrders] = useState([])
     const [orderInfo, setOrderInfo] = useState('')
+    const [isNew, setIsNew] = useState(true)
 
-    const handleShowInfo = (e) => {
+    const handleShowInfo = (e, isNew) => {
         setOrderInfo(e)
+        setIsNew(isNew)
         setShowInfo(showInfo? false : true)
     }
 
@@ -32,7 +34,11 @@ export const Pedidos = () => {
 
     useEffect(() => {
         getAsync()
-        getFrete() // eslint-disable-next-line
+        getFrete()
+        const interval = setInterval(() => {
+            getAsync()
+        }, 60000)
+        return () => clearInterval(interval) // eslint-disable-next-line
     }, [])
 
     return (
@@ -59,7 +65,7 @@ export const Pedidos = () => {
                     <h3><span>03</span> Pedidos em entrega / retirar</h3>
                     {orders?.map((item) => {
                         if(item.ready === true)
-                        return <Prontos key={item._id} info={item} />
+                        return <Prontos key={item._id} info={item} handleClick={handleShowInfo} />
                         return null
                     })}
                 </div>
@@ -72,8 +78,8 @@ export const Pedidos = () => {
                     <p><span>R$ {freteValue?.price}</span>valor de entrega</p>
                 </div>
             </div>
-            <PedidoModal show={showInfo} click={handleShowInfo} info={orderInfo} />
-            <TimeModal show={showTime} click={handleShowTime}/>
+            {showInfo&& <PedidoModal info={orderInfo} newIs={isNew} close={setShowInfo} />}
+            {showTime&& <TimeModal click={handleShowTime}/>}
         </div>
     )
 }
