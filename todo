@@ -1,0 +1,34 @@
+- Remover tudo sobre clientes [X]
+- Manter página de cardápio / menu [X]
+- No celular, adicionar icone do site na tela inicial [X]
+
+- Pedido fora de horário não pode ser feito [X]
+- Aberto/fechado automatico [X]
+
+- Bairro vinculados a cidade [X]
+
+- Comprar mais [X]
+- Registro de dados antes de finalizar pedido [X]
+- Botão para mandar msg no whats [-]
+- Por fim, formas de pagamento (cartão, dinheiro, pix) [X]
+
+- Clicar no sidebar [X]
+
+- Regristro de Motoboys (Nome, telefone e placa da moto) [X]
+- Ao sair para entrega, selecionar motoboy [X]
+- Relatório por motoboy [X]
+
+- Cada sabor terá uma categoria (salgadas tradicionais, doces tradicionais, etc..) [X]
+- Escolher se terá opções de tamanhos ou se é bebida, etc... [X]
+
+- Adicionar mais ingredientes extras em cada sabor [X]
+- Sabores com descrição dos ingredientes [X]
+
+- Retirar no local n precisa de endereço [X]
+- Arrumar soma total do carrinho [X]
+- Validação [-]
+
+- Arrumar finalizar pedido [X]
+- Clientes - para admins [X]
+
+- Arrumar auth backend [X]

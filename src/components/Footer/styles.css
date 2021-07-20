@@ -42,6 +42,21 @@ footer{
     margin-top: 1.2rem;
     cursor: pointer;
 }
+.horarios td{
+    font-size: 1.8rem;
+}
+.horarios tr td{
+    padding: .8rem;
+    border-top: .1rem solid rgba(255, 255, 255, 0.7);
+    border-bottom: .1rem solid rgba(255, 255, 255, 0.7);
+}
+.horarios tr td:last-child{
+    border-right: .1rem solid rgba(255, 255, 255, 0.7);
+}
+.horarios tr td:first-child{
+    font-weight: 700;
+    border: .1rem rgba(255, 255, 255, 0.7) solid;
+}
 @media (max-width: 1000px){
     .footer{
         width: 100%;

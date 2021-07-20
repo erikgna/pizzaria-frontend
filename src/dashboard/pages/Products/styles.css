@@ -60,6 +60,7 @@
 }
 #produtos .TDimg img{
     width: 15rem;
+    max-height: 10vh;
     margin-right: 1rem;
 }
 #produtos td, th{

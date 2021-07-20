@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {AiOutlineCheck} from 'react-icons/ai'
 import {BiBlock} from 'react-icons/bi'
 import { useGlobalContext } from '../../../context'
@@ -6,7 +6,18 @@ import { useGlobalContext } from '../../../context'
 import './styles.css'
 
 export const PedidoModal = ({info, newIs, close}) => {
-    const {freteValue, editOrder, deleteOrder} = useGlobalContext() 
+    const {editOrder, deleteOrder} = useGlobalContext() 
+    const [total, setTotal] = useState(0)
+    useEffect(() => {
+        async function waitFetch() {
+            let prices = 0
+            info.cart?.forEach(({total}) => {
+                prices = prices+total
+            })
+            setTotal(prices + info.frete)
+        }
+        waitFetch() // eslint-disable-next-line
+    },[])
 
     return (
         <div className='modal show'>
@@ -16,7 +27,7 @@ export const PedidoModal = ({info, newIs, close}) => {
                     <p><span>Forma de entrega: </span>{info?.entrega}</p>
                     <p><span>Cliente: </span>{info.client}</p>
                     <p><span>Telefones: </span>{info.phone}</p>
-                    <p><span>Endereço: </span>{info.address}</p>
+                    {(info?.address !== "( ) --  - ")&& <p><span>Endereço: </span>{info?.address}</p>}
                     <p><span>E-mail: </span>{info.email}</p>
                 </div>
                 <table>
@@ -25,27 +36,37 @@ export const PedidoModal = ({info, newIs, close}) => {
                             <th>ITEM</th>
                             <th>TOTAL</th>
                         </tr>
-                            {info?.titles?.map((name, index) => (
+                            {info?.cart?.map(({sabor, tamanho, total, borda, extra}, index) => (
                                 <tr key={index}>
                                     <td className="item1">
-                                        <h5>{name}</h5>
-                                        <p>{info?.description[index]}</p>
+                                        <h5>{tamanho}</h5>
+                                        {(borda)&& <p><span>Borda:</span> {borda}</p>}
+                                        {(sabor)&& <p><span>- Sabores:</span></p>}
+                                        {sabor?.map((item, index) => (
+                                            <p key={index}>- {item}</p>
+                                        ))}
+                                        {(extra)&& <p><span>- Ingredientes:</span></p>}
+                                        {extra?.map(({name}, index) => (
+                                            <p key={index}>- {name}</p>
+                                        ))}
                                     </td>
-                                    <td>R$ {info?.prices[index]}</td>
+                                    <td>R$ {total}</td>
                                 </tr>
                                 ))}
                     </thead>
                 </table>
                 <div className="item1">
-                    <p><span>Borda:</span>{info.recheio.split(',')[1]}</p>
-                    <p><span>OBS:</span>{info.obs}</p>
+                    {(info.obs)&& <p><span>OBS:</span>{info.obs}</p>}
                 </div>
                 <div className="info-money">
-                    <h6>Taxa de Entrega <span>R$ {freteValue.price}</span></h6>
-                    <h6>Total do Pedido <span>R$ {freteValue.price + info.price}</span></h6>
+                    {(info?.frete !== 0)&& <h6>Taxa de Entrega <span>R$ {info?.frete}</span></h6>}
+                    <h6>Total do Pedido <span>R$ {total}</span></h6>
                 </div>
                 <div className="total">
-                    <h6>{info?.metodo}: <span>R$ {freteValue.price + info?.price + parseFloat(info?.recheio.split(',')[0])}</span></h6>
+                    {(info?.moto)&& <h6 id="moto-title">Motoboy: <span>{info?.moto}</span></h6>}
+                    {(info?.metodo === "PIX")&& <h6>{info?.metodo}: <span>R$ {total}</span></h6>}
+                    {(info?.metodo === "Cartão")&& <h6>{info?.metodo} - {info?.cartao.tipo} - {info?.cartao.bandeira}: <span>R$ {total}</span></h6>}
+                    {(info?.metodo === "Dinheiro")&& <h6>{info?.metodo} -- Troco R$ {info?.dinheiro}: <span>R$ {total}</span></h6>}
                 </div>
                 {newIs? 
                     <div className="buttons">

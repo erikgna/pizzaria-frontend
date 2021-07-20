@@ -8,6 +8,9 @@
     font-size: 1.8rem;
     color: var(--white);
 }
+.user .dropdown {
+    justify-self: center;
+}
 .user .dropdown svg{
     color: var(--white);
 }

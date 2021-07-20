@@ -8,26 +8,27 @@ import { Order } from "./pages/Order/Order";
 import { Footer } from "./components/Footer/Footer";
 import Dashboard from "./dashboard/Dashboard"
 import { useGlobalContext } from "./context";
-import { Auth } from "./pages/Auth/Auth";
 import {Login} from './dashboard/pages/Login/Login'
 import {Pedidos} from './dashboard/pages/Pedidos/Pedidos'
+import { Acompanhar } from './pages/Acompanhar/Acompanhar';
 
 function App() {
-  const {user, getProducts} = useGlobalContext()
+  const {getProducts} = useGlobalContext()
   const [admin, setAdmin] = useState(false)
   const [funcio, setFuncio] = useState(false)
   const [isWhite, setIsWhite] = useState(false)
+  const token = useState(JSON.parse(localStorage.getItem('token')))
 
   useEffect(() => {
     getProducts()
 
     const path = window.location.pathname.substring(0,10)
 
-    if(user?.admin === 3) {
+    if(token) {
       setAdmin(true)
       if(path === '/dashboard') setIsWhite(true)
     }
-    if(user?.admin === 2){
+    if(token){
       setFuncio(true)
       if(path === '/dashboard') setIsWhite(true)
     } // eslint-disable-next-line
@@ -41,7 +42,7 @@ function App() {
             <Route exact path='/' component={Home} />
             <Route path='/cardapio' component={Menu} />
             <Route path='/pedido' component={Order} />
-            <Route path='/autenticação' component={() => user? <Redirect to="/" /> : <Auth /> } />
+            <Route path='/acompanhar' component={Acompanhar} />
             {admin&& <Route path='/dashboard' component={Dashboard} />}
             {funcio&& <Route path='/dashboard' component={Pedidos} /> }
             <Route path='/login' component={() => isWhite? <Redirect to="/dashboard" /> : <Login /> } />

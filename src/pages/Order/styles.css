@@ -10,6 +10,10 @@
     -webkit-text-stroke-width: .1rem;
     -webkit-text-stroke-color: #360200;
 }
+#order .metodo{
+    display: flex;
+    flex-direction: column;
+}
 #order #total{
     display: flex;
     align-items: center;
@@ -67,6 +71,9 @@
     display: flex;
     align-items: center;
 }
+#order .space{
+    width: 1.5rem;
+}
 @media (max-width: 850px) {
     #order{
         width: 95%;
@@ -76,6 +83,10 @@
     }
     #order textarea{
         width: 30rem;
+    }
+    #order .space{
+        width: 0;
+        height: 1rem;
     }
 }
 @media (max-width: 750px) {

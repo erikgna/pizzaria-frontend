@@ -25,7 +25,8 @@ export const Edit = ({handleClick, combo, form}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(form === undefined) createProduct({...text, avaliable: true, combo})
+        console.log(text)
+        if(form === undefined || Object.keys(form).length === 0) createProduct({...text, avaliable: true, combo})
         else editProduct(form?._id, text)
     }
 

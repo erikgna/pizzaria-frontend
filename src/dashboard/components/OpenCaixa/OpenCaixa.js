@@ -4,11 +4,12 @@ import { useGlobalContext } from '../../../context'
 import './styles.css'
 
 export const OpenCaixa = ({click, open, edit}) => {
-    const {createCaixa} = useGlobalContext()
+    const {createCaixa, remakeMotoboy} = useGlobalContext()
     const [text, setText] = useState('')
 
     const submit = (e) => {
         e.preventDefault()
+        remakeMotoboy()
         createCaixa(text)
         setText('')
     }

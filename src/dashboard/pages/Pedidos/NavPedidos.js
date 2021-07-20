@@ -3,11 +3,9 @@ import { jsPDF } from "jspdf";
 import { AiFillPrinter, AiOutlineMenu, AiOutlineLogout } from 'react-icons/ai'
 import { CgScreen } from 'react-icons/cg'
 import { RiMoneyDollarCircleFill } from 'react-icons/ri'
-import { FaPizzaSlice } from 'react-icons/fa'
 
 import { CaixaModal } from '../../components/CaixaModal/CaixaModal'
 import { OpenCaixa } from '../../components/OpenCaixa/OpenCaixa'
-import { OpenBorda } from '../../components/OpenBorda/OpenBorda'
 import { useGlobalContext } from '../../../context'
 
 export const NavPedidos = ({orderLength}) => {
@@ -15,7 +13,6 @@ export const NavPedidos = ({orderLength}) => {
     const [showCaixa, setShowCaixa] = useState(false)
     const [showButtons, setShowButtons] = useState(false)
     const [showOpen, setShowOpen] = useState(false)
-    const [showBorda, setShowBorda] = useState(false)
 
     const handleShowCaixa = () => {
         if(caixa !== undefined) setShowCaixa(showCaixa? false : true)
@@ -27,10 +24,6 @@ export const NavPedidos = ({orderLength}) => {
 
     const handleShowOpen = () => {
         setShowOpen(showOpen? false : true)
-    }
-
-    const handleShowBorda = () => {
-        setShowBorda(showBorda? false : true)
     }
 
     const pdf = () => {
@@ -115,12 +108,6 @@ export const NavPedidos = ({orderLength}) => {
                         <span>ativa</span>
                     </div>
                 </div>
-                <div className="green" onClick={handleShowBorda}>
-                    <FaPizzaSlice />
-                    <div>
-                        <p>Bordas</p>
-                    </div>
-                </div>
                 <div className="cart" onClick={logout}>
                     <AiOutlineLogout />
                     <div>
@@ -130,7 +117,6 @@ export const NavPedidos = ({orderLength}) => {
             </div>
             {showCaixa&& <CaixaModal orderLength={orderLength} click={handleShowCaixa} /> }
             {showOpen&& <OpenCaixa click={handleShowOpen} open={caixa} edit={editCaixa} /> }
-            {showBorda&& <OpenBorda click={handleShowBorda} /> }
         </div>
     )
 }

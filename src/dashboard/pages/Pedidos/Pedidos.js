@@ -75,7 +75,6 @@ export const Pedidos = () => {
                 <div>
                     <p><span>{freteValue?.retirada}</span>para retirada</p>
                     <p><span>{freteValue?.entrega}</span>para entrega</p>
-                    <p><span>R$ {freteValue?.price}</span>valor de entrega</p>
                 </div>
             </div>
             {showInfo&& <PedidoModal info={orderInfo} newIs={isNew} close={setShowInfo} />}

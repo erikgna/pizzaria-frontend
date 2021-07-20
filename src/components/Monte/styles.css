@@ -1,0 +1,125 @@
+.montar{
+    width: 60rem;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    background: var(--red);
+    border-radius: .8rem;
+    padding: 3rem;
+    color: white;
+}
+.montar label, .montar option, .montar select{
+    font-size: 1.8rem;
+}
+.montar label{
+    margin-right: 1.5rem;
+}
+.montar .first{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.montar .first div:last-child{
+    margin-left: 5rem;
+}
+.montar .buttons button{
+    font-size: 1.8rem;
+    cursor: pointer;
+    background: var(--white) !important;
+    color: var(--black) !important;
+    border: none;
+    padding: 1rem .5rem;
+    border-radius: .5rem;
+    margin-top: 0 !important;
+}
+.sabores select{
+    width: 20rem;
+}
+.montar .buttons button:last-child{
+    margin-left: 1rem;
+}
+.montar .last{
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+}
+.montar .price{
+    margin-left: 2rem;
+}
+.montar .sabores{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.montar .sabores div{
+    display: flex;
+    flex-direction: column;
+}
+.montar .sabores div:not(:last-child){
+    margin-right: 2rem;
+}
+.montar .bordas{
+    margin-top: 2rem;
+}
+.montar .price h4{
+    color: white !important;
+}
+.ingredientes{
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+.ingredientes svg{
+    cursor: pointer;
+    margin-right: 1rem;
+    font-size: 2rem;
+}
+.sabores h6{
+    font-size: 2rem;
+}
+.ingredientesDiv svg{
+    cursor: pointer;
+}
+.ingredientesDiv p{
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+}
+.ingredientesDiv svg{
+    margin-left: 1rem;
+    font-size: 1.8rem;
+}
+.montar .sub{
+    margin: 2rem 0;
+}
+@media (max-width: 650px) {
+    .montar{
+        width: 35rem;
+    }
+    .montar form{
+        display: flex;
+        flex-direction: column;
+    }
+    .montar .first{
+        display: flex;
+        flex-direction: column;
+    }
+    .montar .first div:last-child{
+        display: flex;
+        flex-direction: column;
+        margin-left: 0;
+    }
+    .montar .sabores{
+        display: flex;
+        flex-direction: column;
+    }
+    .montar select{
+        width: 27rem;
+        margin: .5rem 0;
+    }
+    .montar .buttons button:last-child{
+        margin-left: 0;
+        margin-top: 1rem !important;
+    }
+}

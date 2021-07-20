@@ -20,7 +20,7 @@ export const Clients = () => {
 
     return (
         <div className="clients">
-            <h1>Clientes</h1>
+            <h1>Contas</h1>
             <div className="actions">
                 <button onClick={handleShow}>Novo Administrador</button>
                 <form>
@@ -31,12 +31,11 @@ export const Clients = () => {
             <div className="titles">
                 <p>Nome</p>
                 <p>Email</p>
-                <p>Telefone</p>
-                <p>Ações</p>
+                <p className="gridcenter">Ações</p>
             </div>
-            {users.map(({_id, name, email, phone}) => {
+            {users.map(({_id, name, email}) => {
                 if(search === "" || name?.toLowerCase()?.includes(search?.toLowerCase()?.trim()))
-                return <User key={_id} id={_id} name={name} email={email} phone={phone} />
+                return <User key={_id} id={_id} name={name} email={email} />
                 return null
             })}
             {show&& <NovoUser click={handleShow} />}

@@ -1,0 +1,75 @@
+.motoboys h2{
+    text-align: center;
+    margin: 3rem 0;
+}
+.motoboys h4{
+    margin-bottom: 2rem;
+}
+.motoboys{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.motoboys-sec{
+    display: flex;
+    justify-content: center;
+}
+.add-motoboy form{
+    width: 50rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+    border: .1rem solid rgb(178, 178, 178);
+    border-radius: .5rem;
+}
+.add-motoboy label{
+    margin-top: 1rem;
+    font-size: 1.8rem;
+}
+.add-motoboy input{
+    font-size: 1.7rem;
+    height: 3.5rem;
+    border: .1rem solid rgb(180, 180, 180);
+    margin: 1rem 0;
+}
+.lista-motoboys .single{
+    border-bottom: .1rem solid rgb(178, 178, 178);
+    border-radius: .5rem;
+}
+.lista-motoboys{
+    border: .1rem solid rgb(178, 178, 178);
+    width: 50rem;
+    margin-left: 10rem;
+    padding: 0 1rem;
+}
+.lista-motoboys p{
+    margin: 1rem 0;
+}
+.lista-motoboys span{
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.motoboys button{
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.8rem;
+    border: none;
+    width: 20rem;
+    background: #3497dd;
+    color: var(--white);
+    padding: .5rem 1rem;
+    margin: 1.5rem 0;
+}
+.motoboys .alignp{
+    display: flex;
+    align-items: center;
+}
+.motoboys .alignp span{
+    margin-right: 1rem;
+}
+.motoboys svg{
+    cursor: pointer;
+    color: var(--red);
+    font-size: 2rem;
+    margin-left: 2rem;
+}

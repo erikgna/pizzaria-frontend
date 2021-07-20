@@ -80,6 +80,28 @@ nav #goTrack{
 nav #goTrack:hover{
     color: var(--white);
 }
+.isopen{
+    width: 100%;
+    top: -5vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.openred{
+    background: var(--red);
+}
+.opengreen{
+    background: #4fba3e;
+}
+.isopen p{
+    font-size: 1.8rem;
+    /* border: .1rem solid black; */
+}
+.isopen p:hover{
+    color: var(--white);
+    cursor: auto;
+}
 @media (max-width: 950px){
     nav #column{
         display: none;

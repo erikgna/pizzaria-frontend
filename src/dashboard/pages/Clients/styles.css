@@ -5,6 +5,9 @@
     align-items: center;
     padding-bottom: 5rem;
 }
+.gridcenter{
+    justify-self: center;
+}
 .clients h1{
     margin: 5rem 0;
 }
@@ -12,7 +15,7 @@
     width: 90%;
     display: grid;
     align-items: center;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 1.5rem 2.5rem;
 }
 .clients .titles p{

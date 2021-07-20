@@ -3,24 +3,24 @@ import PhoneInput from 'react-phone-input-2'
 
 import './styles.css'
 
-export const Input = ({name, type, length, label, place, required, handleChange, value, styles}) => {
+export const Input = ({title, type, length, label, place, required, handleChange, value, styles}) => {
     return (
         <div id='input' style={styles}>
             <label>{label} {!required&& '(opcional)'}</label>
-            {name === 'phone'? 
+            {title?.substring(0,5) === 'phone'? 
                 <PhoneInput 
-                    name={name}
+                    name={title}
                     specialLabel
                     country='br'
                     placeholder="Telefone/Celular" 
                     className="phone"
-                    onChange={(e) => handleChange('phone', e)} 
+                    onChange={(e) => handleChange(title, e)} 
                     value={value}
                     required
                 />
                 : 
                 <input 
-                    name={name}
+                    name={title}
                     type={type} 
                     placeholder={place} 
                     maxLength={length} 

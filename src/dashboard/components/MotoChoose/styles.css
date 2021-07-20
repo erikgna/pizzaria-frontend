@@ -1,0 +1,21 @@
+.motoboy-modal select, .motoboy-modal label, .motoboy-modal option{
+    font-size: 1.8rem;
+    outline: none;
+}
+.motoboy-modal select{
+    margin: 1rem 0;
+}
+.motoboy-modal label{
+    margin-top: 2rem;
+}
+.motoboy-modal button{
+    font-size: 1.8rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: var(--white);
+    background: #3497dd;
+    padding: .5rem 1.5rem;
+    border-radius: .5rem;
+}

@@ -4,11 +4,12 @@
     display: flex;
     flex-direction: column;
     background: rgb(41, 41, 41);
-    padding: 15vh 3.5rem 10vh 2.5rem;
+    padding: 10vh 3.5rem 10vh 2.5rem;
     left: 0;
+    cursor: pointer;
 }
 #sidebar h4{
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
     color: var(--white);
 }
 #sidebar a, #sidebar p{
@@ -23,10 +24,14 @@
     transition: ease-in 300ms;
     color: rgb(160, 160, 160);
 }
-#sidebar .mouse-over, #sidebar:hover .icons{
+#sidebar .mouse-over{
     display: none;
 }
-#sidebar:hover .mouse-over, #sidebar .icons{
+#sidebar .mouse-show{
+    display: flex;
+    flex-direction: column;
+}
+#sidebar .icons{
     display: flex;
     flex-direction: column;
 }

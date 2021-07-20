@@ -1,12 +1,26 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { MdMotorcycle, MdModeEdit, MdZoomIn} from 'react-icons/md'
 import {AiFillCheckCircle, AiFillClockCircle} from 'react-icons/ai'
 
 import { useGlobalContext } from '../../../context'
+import {MotoChoose} from '../../components/MotoChoose/MotoChoose'
 
 export const Preparo = ({info, handleClick}) => {
-    const {editOrder} = useGlobalContext()
+    const {editOrder, editMotoboy} = useGlobalContext()
+    const [moto, setMoto] = useState('')
+    const [show, setShow] = useState(false)
     const data = info.date.substring(11, 16)
+
+    const handleReady = (id) => {
+        const motoId = moto.split(',')[0]
+        const motoName = moto.split(',')[1]
+        if(moto !== '') {
+            editMotoboy(motoId, {price: info.frete})
+            editOrder(id, {ready: true, moto: motoName})
+        }
+        else if(info?.frete === 0) editOrder(id, {ready: true})
+        else setShow(true)
+    }
 
     return (
         <div className="preparo">
@@ -17,7 +31,7 @@ export const Preparo = ({info, handleClick}) => {
                     <h6>{info.client}</h6>
                 </div>
                 <div>
-                    <AiFillCheckCircle id="check" onClick={() => editOrder(info._id, {ready: true})} />
+                    <AiFillCheckCircle id="check" onClick={() => handleReady(info._id)} />
                     <MdZoomIn />
                     <MdModeEdit />
                 </div>
@@ -26,6 +40,7 @@ export const Preparo = ({info, handleClick}) => {
                 <AiFillClockCircle />
                 <p>{info.address}</p>
             </div>
+            {show&& <MotoChoose selected={setMoto} handleShow={setShow} />}
         </div>
     )
 }
