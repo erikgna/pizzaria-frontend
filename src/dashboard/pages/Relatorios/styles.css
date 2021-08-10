@@ -34,19 +34,14 @@
     font-size: 1.8rem;
     padding: .5rem;
 }
-.charts canvas{
-    min-width: 30rem;
-    margin-top: 2.5rem;
-}
-.charts .donuts{
-    max-width: 50rem;
-    max-height: 50rem;
-}
 @media (max-width: 875px){
     .charts{
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 5rem 0;
+    }
+    .charts-100 h2{
+        font-size: 3.6rem;
     }
 }

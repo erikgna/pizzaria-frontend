@@ -52,3 +52,31 @@
     align-items: flex-end;
     margin-bottom: 3rem;
 }
+
+@media (max-width: 750px){
+    .clients .actions{
+        align-self: flex-start;
+        flex-direction: column;
+        align-items: center;
+    }
+    .clients label{
+        margin-top: 2rem;
+    }
+    .clients .titles {
+        display: none;
+    }
+    .clients h1{
+        font-size: 3.6rem;
+    }
+}
+@media (max-width: 450px){
+    .clients input{
+        width: 24rem;
+    }
+    .clients button{
+        font-size: 1.8rem;
+    }
+    .clients form{
+        margin-left: 0;
+    }
+}

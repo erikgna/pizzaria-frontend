@@ -8,6 +8,7 @@ export const Inicio = () => {
     return (
         <div className="inicio">
             <Relatorios />
+            <div className="mobile-divider"></div>
             <Clients />
         </div>
     )

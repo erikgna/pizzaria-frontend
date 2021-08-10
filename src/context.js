@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react'
+import { jsPDF } from "jspdf";
+
 import * as api from './api/index'
 
 const AppContext = React.createContext()
@@ -36,6 +38,7 @@ const AppProvider = ({children}) => {
     const logout = () => {
         localStorage.removeItem('token')
         localStorage.removeItem('cart')
+        localStorage.removeItem('email')
         window.location.href = "/";
     }
 
@@ -69,6 +72,7 @@ const AppProvider = ({children}) => {
         setLoading(true)
         await api.newProduct(formData)
         setLoading(false)
+        alert('Produto criado com sucesso!')
         document.location.reload()
     }
 
@@ -101,6 +105,7 @@ const AppProvider = ({children}) => {
             setLoading(true)
             await api.editProduct(id, formData)
             setLoading(false)
+            alert('Produto editado com sucesso!')
             document.location.reload()
         } catch (error) {
             console.log(error)
@@ -256,12 +261,22 @@ const AppProvider = ({children}) => {
 
         const padrao = "01-01-1970 "
         const check = parseInt(dayClose.substring(0,2))
-        const atual = padrao+new Date().getHours()+":"+new Date().getMinutes()+":00"
+        const tempAtual = new Date().getHours()
+        let atual
+        if(tempAtual === 1 || tempAtual === 2 || tempAtual === 3 || tempAtual === 4 || tempAtual === 5 || tempAtual === 6 || tempAtual === 7 || tempAtual === 8 || tempAtual === 9) atual = padrao+"0"+new Date().getHours()+":"+new Date().getMinutes()+":00"
+        else atual = padrao+new Date().getHours()+":"+new Date().getMinutes()+":00"
 
         const aberto = padrao+dayOpen+":00"
         let fechado
         if(check === 0) fechado = padrao+"24:00:00"
         else if(check === 1) fechado = padrao+"25:00:00"
+        else if(check === 2) fechado = padrao+"26:00:00"
+        else if(check === 4) fechado = padrao+"27:00:00"
+        else if(check === 5) fechado = padrao+"27:00:00"
+        else if(check === 6) fechado = padrao+"27:00:00"
+        else if(check === 7) fechado = padrao+"27:00:00"
+        else if(check === 8) fechado = padrao+"27:00:00"
+        else if(check === 9) fechado = padrao+"27:00:00"
         else fechado = padrao+dayClose+":00"
 
         if(atual > aberto && atual < fechado) setOpen(true)
@@ -289,6 +304,7 @@ const AppProvider = ({children}) => {
     }
 
     const createCidade = async (data) => {
+        data.preventDefault()
         try {
             await api.createCidade(data)
             window.location.reload()
@@ -298,6 +314,7 @@ const AppProvider = ({children}) => {
     }
 
     const createBairro = async (data) => {
+        data.preventDefault()
         try {
             await api.createBairro(data)
             window.location.reload()
@@ -322,6 +339,7 @@ const AppProvider = ({children}) => {
     }
 
     const createSabor = async (data) => {
+        data.preventDefault()
         try {
             await api.createSabor(data)
             window.location.reload()
@@ -388,6 +406,7 @@ const AppProvider = ({children}) => {
     }
 
     const createSub = async (data) => {
+        data.preventDefault()
         await api.createSub({name: data})
         document.location.reload()
     }
@@ -404,7 +423,7 @@ const AppProvider = ({children}) => {
 
     const createExtra = async (data) => {
         await api.createExtra(data)
-        document.location.reload()
+        window.location.reload()
     }
 
     const deleteExtra = async (id) => {
@@ -412,9 +431,35 @@ const AppProvider = ({children}) => {
         window.location.reload()
     }
 
+    const printNote = async (info) => {
+        const doc = new jsPDF({
+            orientation: "portrait",
+            unit: "in",
+            format: [6, info.cart.length+5]
+        })
+        doc.setFontSize(13)
+        doc.text("Pizzaria Milano", 0.5,1)
+        doc.text("CNPJ - 12345678910123", 0.5,1.5)
+        doc.text("Telefone -  (99) 9 9999-9999", 0.5,2)
+        doc.text("---------------------------------------------------------------------------------", 0.5,2.5)
+        doc.text(info.client, 0.5,3)
+        doc.text(info.phone, 0.5,3.5)
+        doc.text(info.address, 0.5,4)
+        let line = 4.5
+        let total = 0
+        info.cart.forEach((item) => {
+            doc.text(item.tamanho, 0.5, line)
+            line += .5
+            total += item.total
+            doc.text("R$ " + item.total.toString(), 0.5, line)
+        })
+        doc.text("Valor total R$ " + total, 0.5,line+0.5)
+        doc.save(info.client + ".pdf")
+    }
+
     return (
             <AppContext.Provider value={{
-                loading,
+                loading, printNote,
                 createUser, enterUser, logout, editUser, getUsers, users, deleteUser,
                 getProducts, createProduct, editProduct, products,
                 addToCart, deleteCart, createCategory, categorys, getCategorys, cart, getBordas, createBorda, deleteBorda,

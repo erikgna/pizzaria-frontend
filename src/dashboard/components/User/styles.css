@@ -17,9 +17,14 @@
 .user .dropdown svg:hover{
     color: rgb(180, 180, 180);
 }
-@media (max-width: 900px){
+@media (max-width: 750px){
     .user{
         display: flex !important;
         flex-direction: column;
+    }
+}
+@media (max-width: 450px){
+    .user p{
+        font-size: 1.6rem;
     }
 }

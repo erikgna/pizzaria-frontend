@@ -60,7 +60,7 @@
 }
 #produtos .TDimg img{
     width: 15rem;
-    max-height: 10vh;
+    height: 10rem;
     margin-right: 1rem;
 }
 #produtos td, th{
@@ -104,4 +104,41 @@
 #categorys{
     display: flex;
     align-items: center;
+}
+
+@media (max-width: 1000px){
+    #produtos .buttons button{
+        font-size: 1.8rem;
+    }
+    #produtos .actions label, #produtos .actions input{
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 875px){
+    #produtos .buttons button{
+        font-size: 1.6rem;
+    }
+    #produtos .actions label, #produtos .actions input{
+        font-size: 1.6rem;
+    }
+    #produtos .actions form{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    #produtos .actions{
+        display: flex;
+        flex-direction: column;
+    }
+    #comboButton{
+        width: 12rem;
+        font-size: 1.8rem !important;
+    }
+}
+@media (max-width: 680px){
+    #produtos .TDimg img{
+        width: 10rem;
+        height: 7rem;
+    }
 }

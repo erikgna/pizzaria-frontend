@@ -7,7 +7,7 @@ import { useGlobalContext } from '../../../context'
 import { DeleteModal } from '../../components/DeleteModal/DeleteModal'
 
 export const Prontos = ({info, handleClick}) => {
-    const {deleteOrder, caixa} = useGlobalContext()
+    const {deleteOrder, caixa, printNote} = useGlobalContext()
     const [showDelete, setShowDelete] = useState(false)
 
     const handleShowDelete = () => {
@@ -22,6 +22,8 @@ export const Prontos = ({info, handleClick}) => {
         const soma = all + info?.frete
         const count = caixa?.count + 1
         const data = {total: soma, count}
+        printNote(info)
+
         deleteOrder(info?._id, data)
     }
 

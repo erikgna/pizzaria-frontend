@@ -45,11 +45,11 @@ export const Montar = () => {
                     <form>
                         <label>Adicionar Tamanho</label>
                         <input type="text" onChange={(e) => setTamanhoText({...tamanhoText, name: e.target.value})} placeholder="Pizza Grande (6 fatias) 25cm" />
-                        <label>Quantida de Sabores</label>
+                        <label>Quantidade de Sabores</label>
                         <input type="text" onChange={(e) => setTamanhoText({...tamanhoText, value: e.target.value})} placeholder="2" />
                         <label>Valor</label>
                         <input type="text" onChange={(e) => setTamanhoText({...tamanhoText, price: e.target.value})} placeholder="R$ 50" />
-                        <button onClick={() => createTamanho(tamanhoText)}>Adicionar</button>
+                        <input type="button" value="Adicionar" onClick={() => createTamanho(tamanhoText)} />
                     </form>
                 </div>
                 <div className="sabores">
@@ -69,7 +69,7 @@ export const Montar = () => {
                         </select>
                         <label>Adicionar Ingredientes</label>
                         <input type="text" onChange={(e) => setSaborText({...saborText, ingredientes: e.target.value})} placeholder="Calabresa, queijo, orégano.." />
-                        <button onClick={() => createSabor(saborText)}>Adicionar</button>
+                        <input type="button" value="Adicionar" onClick={() => createSabor(saborText)} />
                     </form>
                 </div>
                 <div className="bordas">
@@ -82,7 +82,7 @@ export const Montar = () => {
                         <input type="text" onChange={(e) => setBordaText({...bordaText, name: e.target.value})} placeholder="Cheddar" />
                         <label>Valor da Borda</label>
                         <input type="text" onChange={(e) => setBordaText({...bordaText, value: e.target.value})} placeholder="R$ 5" />
-                        <button onClick={() => createBorda(bordaText)}>Adicionar</button>
+                        <input type="button" value="Adicionar" onClick={() => createBorda(bordaText)} />
                     </form>
                 </div>
                 <div className="sabores">
@@ -92,7 +92,7 @@ export const Montar = () => {
                     ))}
                     <label>Adicionar categoria de sabor</label>
                     <input type="text" placeholder="Tradicional doce.." onChange={(e) => setSubBorda(e.target.value)} />
-                    <button onClick={() => createSub(subBorda)}>Adicionar</button>
+                    <input type="button" value="Adicionar" onClick={() => createSub(subBorda)} />
                 </div>
                 <div className="bordas">
                     <h4>Ingredientes Extras</h4>
@@ -104,7 +104,7 @@ export const Montar = () => {
                         <input type="text" onChange={(e) => setExtra({...extra, name: e.target.value})} placeholder="Tomate" />
                         <label>Valor do Extra</label>
                         <input type="text" onChange={(e) => setExtra({...extra, value: e.target.value})} placeholder="R$ 5" />
-                        <button onClick={() => createExtra(extra)}>Adicionar</button>
+                        <input type="button" value="Adicionar" onClick={() => createExtra(extra)} />
                     </form>
                 </div>
             </div>

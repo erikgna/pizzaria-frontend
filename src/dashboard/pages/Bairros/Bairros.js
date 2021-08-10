@@ -25,6 +25,7 @@ export const Bairros = () => {
             const tempCidades = await getCidades()
             const tempBairros = await getBairros()
             setCidades(tempCidades)
+            tempBairros.sort((a, b) => a.cidade.localeCompare(b.cidade));
             setBairros(tempBairros)
         }
         waitFetch() // eslint-disable-next-line

@@ -7,6 +7,7 @@
     padding: 10vh 3.5rem 10vh 2.5rem;
     left: 0;
     cursor: pointer;
+    z-index: 0;
 }
 #sidebar h4{
     margin-bottom: 3rem;

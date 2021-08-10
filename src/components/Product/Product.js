@@ -9,7 +9,7 @@ export const Product = ({img, title, desc, price, category}) => {
     const [showMontar, setShowMontar] = useState(false)
 
     const handleMontar = () => {
-        if(category === "Pizzas" || category === "Calzones") setShowMontar(showMontar? false : true)
+        if(category.toLowerCase() === "pizzas" || category.toLowerCase() === "calzones") setShowMontar(showMontar? false : true)
         else addToCart({img, tamanho: title, total: price}, cart)
     }
 

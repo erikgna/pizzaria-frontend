@@ -4,7 +4,7 @@ import {BiEdit} from 'react-icons/bi'
 
 import { useGlobalContext } from '../../../context'
 
-export const Combo = ({food, search, handleClick}) => {
+export const Combo = ({food, search, handleClick, selected}) => {
     const {editProduct, deleteProduct} = useGlobalContext()
     const [avalia, setAvalia] = useState(false)
     
@@ -16,6 +16,7 @@ export const Combo = ({food, search, handleClick}) => {
     return(
         <>
             {food.map(({_id, image, name, category, price, avaliable, description, combo}) => {
+                if(category === selected || selected === "Todos")
                 if(search === "" || name?.toLowerCase()?.includes(search?.toLowerCase()?.trim()))
                 if(combo === true)
                 return(

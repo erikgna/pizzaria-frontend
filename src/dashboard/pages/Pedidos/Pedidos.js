@@ -10,6 +10,8 @@ import './styles.css'
 import { PedidoModal } from '../../components/PedidoModal/PedidoModal'
 import { TimeModal } from '../../components/TimeModal/TimeModal'
 
+import audio from '../../../assets/ring.wav'
+
 export const Pedidos = () => {
     const {getOrders, freteValue, getFrete} = useGlobalContext()
     const [showInfo, setShowInfo] = useState(false)
@@ -17,6 +19,7 @@ export const Pedidos = () => {
     const [orders, setOrders] = useState([])
     const [orderInfo, setOrderInfo] = useState('')
     const [isNew, setIsNew] = useState(true)
+    let oldOrders = []
 
     const handleShowInfo = (e, isNew) => {
         setOrderInfo(e)
@@ -29,15 +32,27 @@ export const Pedidos = () => {
     }
 
     const getAsync = async () => {
-        setOrders(await getOrders())
+        const newOrders = await getOrders()
+        if(newOrders.length > oldOrders.length) {
+            var sound = new Audio(audio)
+            const playPromise = sound.play();
+
+            if (playPromise !== undefined) {
+                playPromise
+                .then(_ => {})
+                .catch(_ => {});
+            }
+        }
+        oldOrders = newOrders
+        setOrders(newOrders)
     }
 
     useEffect(() => {
         getAsync()
         getFrete()
         const interval = setInterval(() => {
-            getAsync()
-        }, 60000)
+           getAsync()
+        }, 300000)
         return () => clearInterval(interval) // eslint-disable-next-line
     }, [])
 

@@ -101,3 +101,27 @@
     align-items: center;
     margin-top: 2rem;
 }
+#editar option{
+    font-size: 2rem;
+}
+#editar select{
+    width: 35rem;
+    height: 4.5rem;
+    font-size: 2rem;
+}
+@media (max-width: 950px){
+    #editar button{
+        font-size: 1.8rem;
+    }
+    #editar input, #editar label{
+        font-size: 1.8rem !important;
+    }
+    #editar input{
+        width: 30rem;
+    }
+}
+@media (max-width: 700px){
+    #editar input, #editar img{
+        width: 25rem;
+    }
+}

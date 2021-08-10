@@ -39,7 +39,7 @@
     border: .1rem solid rgb(140, 140, 140);
     font-size: 1.8rem;
 }
-.montagem button{
+.montagem input[type=button]{
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--white);
@@ -69,5 +69,16 @@
     .montagem{
         display: flex;
         flex-direction: column;
+    }
+    @media (max-width: 575px) {
+        .montagem input[type=button], .montagem input{
+            width: 25rem;
+        }
+        .montarg h3{
+            font-size: 3rem;
+        }
+        .montagem p{
+            padding: 0 .5rem;
+        }
     }
 }

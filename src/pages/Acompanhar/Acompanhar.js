@@ -5,19 +5,68 @@ import { useGlobalContext } from '../../context'
 import './styles.css'
 
 export const Acompanhar = () => {
-    const {trackOrder} = useGlobalContext()
+    const {trackOrder, getFrete, freteValue} = useGlobalContext()
     const [order, setOrder] = useState(null)
 
     const getOrder = async () => {
         setOrder(await trackOrder(localStorage.getItem('email')))
     }
 
-    const handleContact = () => {
-        window.open(`https://api.whatsapp.com/send/?phone=5547932694930&text=Email do pedido: ${order?.email}`, '_blank').focus()
+    const handleContact = async () => {
+        const hour = `${new Date(order?.date).getHours()}:${new Date(order?.date).getMinutes()}`
+        const date = `${new Date(order?.date).getDate()}/${new Date(order?.date).getMonth()+1}/${new Date(order?.date).getFullYear()}`
+        let parseTotal = 0
+        await order?.cart?.forEach(({total}) => {
+            parseTotal = total+parseTotal
+        })
+        const text = `
+        ✅ NOVO PEDIDO
+        -----------------------------
+        ▶ RESUMO DO PEDIDO
+        
+        Realizado em: ${hour} - ${date}
+        
+        Link para acompanhar status do pedido:
+        https://pizzaria.erikna.com/acompanhar
+        
+        ${order?.cart?.map(({tamanho, borda, sabor, extra, total}) => (
+            `${tamanho} (R$ ${total})
+            
+            ${(borda)? `${borda}` : '- Sem Borda'}
+            ${(sabor)? sabor?.map((item) => (
+                `- ${item}`
+            )): ''}
+            ${(extra)? 'Ingredientes Extras: ' : ''}
+            ${(extra)? extra?.map(({name}) => (
+                `- ${name}`
+            )): ''}
+            `
+        ))}
+        ------------------------------------------
+        ▶ DADOS
+        
+        Nome: ${order?.client}
+        WhatsApp: ${order?.phone}
+        ${(order?.entrega !== 'Buscar no Local')? `Endereço: ${order?.address}`: ''}
+        ${(order?.entrega !== 'Buscar no Local')? `Taxa de Entrega: R$ ${order?.frete}`: ''}
+        ${(order?.entrega !== 'Buscar no Local')? `🕙 Tempo de Entrega: aprox. ${freteValue.entrega} min`: ''}
+        ${(order?.entrega === 'Buscar no Local')? `🕙 Tempo para Buscar: aprox. ${freteValue.retirada} min`: ''}
+        
+        -------------------------------
+        ▶ TOTAL = R$ ${parseTotal+parseInt(order?.frete)}
+        -------------------------------
+        
+        ▶ PAGAMENTO
+        
+        Pagamento no ${order?.metodo}
+        ${(order?.metodo === "Cartão")? `${order?.cartao?.tipo}: ${order?.cartao?.bandeira}` : ''}
+        ${(order?.metodo === "Dinheiro")? `Troco: ${order?.dinheiro}`: ''}`
+        window.open(`https://api.whatsapp.com/send/?phone=5547932694930&text=${text}`, '_blank').focus()
     }
 
     useEffect(() => {
         getOrder()
+        getFrete()
         const interval = setInterval(() => {
             getOrder()
         }, 120000)

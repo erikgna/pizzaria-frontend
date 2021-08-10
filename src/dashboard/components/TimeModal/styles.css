@@ -59,3 +59,26 @@
     display: block;
     width: 5rem;
 }
+@media (max-width: 950px){
+    .modal-input{
+        display: flex;
+        flex-direction: column;
+    }
+    .days input, .days label{
+        font-size: 1.6rem;
+    }
+    .days label{
+        width: 3rem;
+    }
+    .modal-input .buttons{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .modal-input .buttons button{
+        width: 30rem;
+    }
+    .modal-input form{
+        padding: 1.5rem 3rem;
+    }
+}

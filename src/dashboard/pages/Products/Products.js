@@ -76,7 +76,7 @@ export const Products = () => {
                     <Produto food={products} selected={category} search={search} handleClick={handleClick}/>
                 </tbody>
             </table>
-            {showModal&& <Edit handleClick={handleShow} combo={false} form={formData} />}
+            {showModal&& <Edit handleClick={handleShow} combo={false} form={formData} categorys={categorys} />}
             {showModalCategory&& <EditCategory handleClick={handleShowCategory} />}
         </div>
     )

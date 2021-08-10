@@ -96,3 +96,13 @@ input{
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 875px){
+  .drag{
+    width: 4rem !important;
+    height: 2rem;
+  }
+  .drag .pointer{
+    width: 2rem !important;
+    height: 2rem;
+  }
+}
