@@ -4,12 +4,16 @@ import {Monte} from '../Monte/Monte'
 import './styles.css'
 import {useGlobalContext} from '../../context'
 
-export const Product = ({img, title, desc, price, category}) => {
+export const Product = ({img, title, desc, price, category, categorys}) => {
     const {addToCart, cart} = useGlobalContext()
     const [showMontar, setShowMontar] = useState(false)
 
     const handleMontar = () => {
-        if(category.toLowerCase() === "pizzas" || category.toLowerCase() === "calzones") setShowMontar(showMontar? false : true)
+        let showable = false
+        categorys.forEach(({isSpecial, name})=> {
+            if(name === category && isSpecial === true) showable = true
+        })
+        if(showable === true) setShowMontar(showMontar? false : true)
         else addToCart({img, tamanho: title, total: price}, cart)
     }
 

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const API = axios.create({baseURL: "https://pizzariaback.herokuapp.com"})
-// const API = axios.create({baseURL: "http://localhost:5000/"})
+// const API = axios.create({baseURL: "https://pizzariaback.herokuapp.com"})
+const API = axios.create({baseURL: "http://localhost:5000/"})
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('token')){
@@ -78,3 +78,5 @@ export const deleteSub = (id) => API.delete(`/menus/sub/${id}`)
 export const getExtra = () => API.get(`/menus/extra`)
 export const createExtra = (data) => API.post(`/menus/extra`, data)
 export const deleteExtra = (id) => API.delete(`/menus/extra/${id}`)
+
+export const editMontar = (name, id, data) => API.post(`/menus/montar/${name}/${id}`, data)

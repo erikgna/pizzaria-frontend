@@ -15,6 +15,7 @@
     grid-column-gap: 3rem;
 }
 .montagem .tamanho, .montagem .sabores, .montagem .bordas{
+    padding: 0 2rem;
     min-height: 30rem;
     width: 100%;
     display: flex;
@@ -39,7 +40,7 @@
     border: .1rem solid rgb(140, 140, 140);
     font-size: 1.8rem;
 }
-.montagem input[type=button]{
+.montagem input[type=button], button{
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--white);
@@ -64,6 +65,29 @@
     margin-left: 2rem;
     cursor: pointer;
     color: var(--red);
+}
+.textIcon{
+    display: flex;
+}
+.textIcon div{
+    display: flex;
+}
+#checked{
+    color: #49a347;
+}
+#uncheck{
+    color: rgb(201, 201, 201);
+}
+.categoriaEspecial{
+    padding-bottom: 5rem;
+}
+.categoriaEspecial select{
+    height: 3rem;
+    width: 30rem;
+    font-size: 1.8rem;
+}
+.categoriaEspecial option{
+    font-size: 1.8rem;
 }
 @media (max-width: 1000px) {
     .montagem{

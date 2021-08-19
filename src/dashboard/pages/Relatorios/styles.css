@@ -1,6 +1,5 @@
 .charts-100{
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,11 +15,14 @@
     align-items: flex-start;
 }
 .charts div{
+    display: flex;
+    flex-direction: column;
     width: 75%;
     margin-top: 5rem;
 }
 .charts select{
     margin: 2rem 0;
+    width: 35rem;
 }
 .charts h3{
     font-size: clamp(1.8rem, 1.5vw, 2.4rem);
@@ -33,6 +35,12 @@
 .charts select, .charts option{
     font-size: 1.8rem;
     padding: .5rem;
+}
+.charts-100 input[type=submit]{
+    background-color: #266ea0;
+    color: var(--white);
+    cursor: pointer;
+    margin-top: 2.4rem;
 }
 @media (max-width: 875px){
     .charts{

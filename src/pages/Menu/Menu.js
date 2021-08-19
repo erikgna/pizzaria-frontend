@@ -36,7 +36,7 @@ export const Menu = () => {
                 {products.map(({_id, category, image, name, description, price, avaliable, combo}) => {
                     if(category === userCategory || userCategory === "Todas")
                     if(search === "" || name?.toLowerCase()?.includes(search?.toLowerCase()?.trim()))
-                    return avaliable&& !combo&& <Product key={_id} id={_id} img={image} title={name} desc={description} price={price} category={category} />
+                    return avaliable&& !combo&& <Product key={_id} id={_id} img={image} title={name} desc={description} price={price} category={category} categorys={categorys} />
                     return null
                 })}
             </div>

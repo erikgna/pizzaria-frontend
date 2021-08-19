@@ -91,7 +91,7 @@ const AppProvider = ({children}) => {
     }
 
     const createCategory = async (name) => {
-        await api.newCategory({name})
+        await api.newCategory(name)
         document.location.reload()
     }
 
@@ -304,7 +304,6 @@ const AppProvider = ({children}) => {
     }
 
     const createCidade = async (data) => {
-        data.preventDefault()
         try {
             await api.createCidade(data)
             window.location.reload()
@@ -314,7 +313,6 @@ const AppProvider = ({children}) => {
     }
 
     const createBairro = async (data) => {
-        data.preventDefault()
         try {
             await api.createBairro(data)
             window.location.reload()
@@ -339,13 +337,18 @@ const AppProvider = ({children}) => {
     }
 
     const createSabor = async (data) => {
-        data.preventDefault()
         try {
             await api.createSabor(data)
             window.location.reload()
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const editMontar = async (name, id, status) => {
+        const sendStatus = {status: status? false : true}
+        await api.editMontar(name, id, sendStatus)
+        window.location.reload()
     }
 
     const deleteSabor = async (id) => {
@@ -406,7 +409,6 @@ const AppProvider = ({children}) => {
     }
 
     const createSub = async (data) => {
-        data.preventDefault()
         await api.createSub({name: data})
         document.location.reload()
     }
@@ -469,7 +471,7 @@ const AppProvider = ({children}) => {
                 createCidade, createBairro, getBairros, getCidades, deleteBairro, deleteCidade,
                 getSabor, createSabor, deleteSabor, getTamanho, createTamanho, deleteTamanho,
                 getMotoboy, createMotoboy, deleteMotoboy, editMotoboy, remakeMotoboy, getSub,
-                createSub, deleteSub, getExtras, createExtra, deleteExtra
+                createSub, deleteSub, getExtras, createExtra, deleteExtra, editMontar
             }}>
                 {children}
             </AppContext.Provider>
